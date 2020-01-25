@@ -1,0 +1,61 @@
+.avatar {
+  width: 100px;
+  border: 3px solid white;
+}
+
+.cluster {
+  padding:0.5%;
+  border-radius: 5%;
+  margin: 1%;
+  display: inline-block;
+  text-align: center;
+}
+
+input {
+  border:none;
+  margin-right:2%;
+  font-size: medium;
+  border-bottom: 2px solid rgb(215, 228, 188);
+  width:70%;
+  padding:0.5%;
+  color: rgb(105, 133, 51);
+}
+
+button {
+  background-color: yellowgreen;
+  color: white;
+  border:none;
+  padding:0.5%;
+  font-weight: bold;
+  height:100%;
+  width:10%;
+  font-size: 120%;
+}
+
+#search {
+  text-align: center;
+}
+
+
+
+a {
+  color: rgb(92, 177, 127);
+  padding:0.6%;
+  background-color:white;
+}
+
+#message {
+  text-align:center;
+  color: rgb(105, 133, 51);
+}
+
+body {
+  background-image: url(/stardust.png);
+}
+
+#about {
+  background-color:transparent !important;
+  position:absolute;
+  top:1%;
+}
+
