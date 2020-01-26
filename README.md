@@ -1,4 +1,5 @@
 # techblogsearch.ml
+![screenshot of techblogsearch](https://github.com/schirhei/techblogsearch/blob/master/public/screenshot.jpg?raw=true)
 ### How to use
 Take the url of a Github repository. Copy the last part of the url.
 
