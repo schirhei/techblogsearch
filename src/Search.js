@@ -37,6 +37,9 @@ export default class Search extends Component {
                 fetch(users[i])
                 .then(re => re.json()) 
                 .then(re => {
+                    if (!re.blog.includes("http")) {
+                        re.blog = "http://" + re.blog;
+                    }
                     if (re.blog !== "" && !re.blog.includes("twitter")) {
                         this.setState({sites: this.state.sites.concat(
                                 <p key={Math.round(Math.random() * 10)} className="cluster" >
