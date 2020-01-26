@@ -18,7 +18,7 @@ export default class Search extends Component {
         .then(res => res.json())
         .then(res => {
             if (res.message) {
-                this.setState({sites: <div id="message"><p>Github says: </p>{res.message}</div>})
+                this.setState({sites: <div id="message"><h2>Github says: </h2>{res.message}</div>})
             } else {
                 for (var i = 0; i < res.length; i++) {
                     this.state.users.push(res[i].url)
@@ -39,10 +39,10 @@ export default class Search extends Component {
                 .then(re => {
                     if (re.blog !== "" && !re.blog.includes("twitter")) {
                         this.setState({sites: this.state.sites.concat(
-                                <p href={re.blog} key={re.blog} className="cluster" >
-                                    <img className="avatar" src={re.avatar_url} alt={ "github profile picture of " + re.login } />
+                                <p key={Math.round(Math.random() * 10)} className="cluster" >
+                                    <img href={re.blog} className="avatar" src={re.avatar_url} alt={ "github profile picture of " + re.login } />
                                     <br></br>
-                                    <a>{ re.blog.replace('http://', '').replace('https://', '') }</a>
+                                    <a href={re.blog}>{ re.blog.replace('http://', '').replace('https://', '') }</a>
                                 </p>)
                             })
                     }
