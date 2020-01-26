@@ -37,10 +37,11 @@ export default class Search extends Component {
                 fetch(users[i])
                 .then(re => re.json()) 
                 .then(re => {
-                    if (!re.blog.includes("http")) {
-                        re.blog = "http://" + re.blog;
-                    }
+                    
                     if (re.blog !== "" && !re.blog.includes("twitter")) {
+                        if (!re.blog.includes("http")) {
+                            re.blog = "http://" + re.blog;
+                        }
                         this.setState({sites: this.state.sites.concat(
                                 <p key={Math.round(Math.random() * 10)} className="cluster" >
                                     <img href={re.blog} className="avatar" src={re.avatar_url} alt={ "github profile picture of " + re.login } />
