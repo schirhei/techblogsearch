@@ -52,10 +52,7 @@ export default class Search extends Component {
                 <a id="about" href="about.html">about</a>
                 <div id="search">
                     <h2 style={{ "color": "yellowgreen" }}>techblogsearch</h2>
-                    <input type="text" placeholder="owner/repo" onKeyDown={e => {
-                        if (e.keyCode === 13) {this.findLinks()}
-                        this.setState({ repo: e.target.value })}
-                        } />
+                    <input type="text" placeholder="github owner/repo" onInput={e => this.setState({ repo: e.target.value })} onKeyDown={e => { if (e.keyCode === 13) this.findLinks() }}/>
                     <button onClick={this.findLinks}>Go</button>
                 </div>
                 <br></br>
