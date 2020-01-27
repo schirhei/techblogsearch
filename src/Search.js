@@ -5,33 +5,36 @@ export default class Search extends Component {
         super();
         this.state = {
             repo: "",
-            users: [],
-            sites: []
+            loading: "",
+            sites: [],
+            amount: 0
         }
         this.findLinks = this.findLinks.bind(this)
     }
 
     findLinks() {
-        this.setState({sites: []});
-        this.setState({users: []});
+        this.setState({sites: []})
         fetch(`http://techblogsearch.herokuapp.com/${this.state.repo}`)
         .then(res => res.json())
         .then(res => {
+            this.setState({ loading: "Loading..."} )
             if (res.message) {
                 this.setState({sites: <div id="message"><h2>Github says: </h2>{res.message}</div>})
             } else {
+                this.setState({ amount: res.length})
                 for (var i = 0; i < res.length; i++) {
                     this.loadLinks(res[i])
                 }
                 
             }
+            this.setState({ loading: ""})
+            this.setState({ amount: 0})
         })
         
         .catch(e => console.log(e));
     }
 
     loadLinks(re) {
-
         if (re.blog !== "" && !re.blog.includes("twitter")) {
             if (!re.blog.includes("http")) {
                 re.blog = "http://" + re.blog;
@@ -47,6 +50,7 @@ export default class Search extends Component {
     }
     
     render() {
+        var loading = this.state.amount > 0 ? this.state.sites : this.state.loading;
         return (
             <>
                 <a id="about" href="about.html">about</a>
@@ -56,8 +60,7 @@ export default class Search extends Component {
                     <button onClick={this.findLinks}>Go</button>
                 </div>
                 <br></br>
-                { this.state.sites }
-                
+                <div style={{"color":"yellowgreen"}}>{ loading }</div>
             </>
         )
     }
