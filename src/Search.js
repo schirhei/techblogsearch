@@ -13,25 +13,25 @@ export default class Search extends Component {
     }
 
     findLinks() {
-        this.setState({sites: []})
+        this.setState({ loading: "Loading..."} )
+        this.setState({ sites: [] })
         fetch(`https://techblogsearch.herokuapp.com/${this.state.repo}`)
         .then(res => res.json())
         .then(res => {
-            this.setState({ loading: "Loading..."} )
             if (res.message) {
                 this.setState({sites: <div id="message"><h2>Github says: </h2>{res.message}</div>})
             } else {
-                this.setState({ amount: res.length})
                 for (var i = 0; i < res.length; i++) {
                     this.loadLinks(res[i])
                 }
                 
             }
             this.setState({ loading: ""})
-            this.setState({ amount: 0})
         })
-        
-        .catch(e => console.log(e));
+        .catch(e => {
+            console.log(e);
+            this.setState({ loading: "Something went horribly wrong."})
+        });
     }
 
     loadLinks(re) {
@@ -50,17 +50,19 @@ export default class Search extends Component {
     }
     
     render() {
-        var loading = this.state.amount > 0 ? this.state.sites : this.state.loading;
         return (
             <>
                 <a id="about" href="about.html">about</a>
                 <div id="search">
                     <h2 style={{ "color": "yellowgreen" }}>techblogsearch</h2>
-                    <input type="text" placeholder="github owner/repo" onInput={e => this.setState({ repo: e.target.value })} onKeyDown={e => { if (e.keyCode === 13) this.findLinks() }}/>
-                    <button onClick={this.findLinks}>Go</button>
+                    <div className="press">
+                        <input type="text" placeholder="github owner/repo" onInput={e => this.setState({ repo: e.target.value })} onKeyDown={e => { if (e.keyCode === 13) this.findLinks() }}/>
+                        <button onClick={this.findLinks}>Go</button>
+                    </div>
                 </div>
                 <br></br>
-                <div style={{"color":"yellowgreen"}}>{ loading }</div>
+                <div style={{"color":"yellowgreen", "textAlign": "center"}}>{ this.state.loading }</div>
+                <div>{ this.state.sites }</div>
             </>
         )
     }

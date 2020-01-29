@@ -56,6 +56,10 @@ body {
 #about {
   background-color:transparent !important;
   position:absolute;
-  top:1%;
+  margin-left:3%;
+
 }
 
+.press {
+  padding:3%;
+}
