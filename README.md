@@ -4,11 +4,9 @@
 Take the url of a Github repository. Copy the last part of the url.
 
 For example.
-github.com/schirhei/techblogsearch --> schirhei/techblogsearch
+github.com/schirhei/techblogsearch --> **schirhei/techblogsearch**
 
 Enjoy browsing the blogs of the contributors.
-
-Note that you can make only 60 requests/hour to github's API without authentication. Respect the API and try not to spam it.
 
 ### Why?
 

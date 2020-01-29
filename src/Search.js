@@ -19,7 +19,12 @@ export default class Search extends Component {
         .then(res => res.json())
         .then(res => {
             if (res.message) {
-                this.setState({sites: <div id="message"><h2>Github says: </h2>{res.message}</div>})
+                if (res.message === "You pressed Go too many times. Chill out.") {
+                    this.setState({sites: <div id="message"><h3>{res.message}</h3></div>})
+                } else {
+                    this.setState({sites: <div id="message"><h2>Github says: </h2><h3>{res.message}</h3></div>})
+                }
+                
             } else {
                 for (var i = 0; i < res.length; i++) {
                     this.loadLinks(res[i])

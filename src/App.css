@@ -46,7 +46,7 @@ a {
 
 #message {
   text-align:center;
-  color: rgb(105, 133, 51);
+  color: yellowgreen;
 }
 
 body {
@@ -61,5 +61,6 @@ body {
 }
 
 .press {
-  padding:3%;
+  display: flex;
+  justify-content: center;
 }
