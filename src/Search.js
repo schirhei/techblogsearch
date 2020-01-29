@@ -14,7 +14,7 @@ export default class Search extends Component {
 
     findLinks() {
         this.setState({sites: []})
-        fetch(`http://techblogsearch.herokuapp.com/${this.state.repo}`)
+        fetch(`https://techblogsearch.herokuapp.com/${this.state.repo}`)
         .then(res => res.json())
         .then(res => {
             this.setState({ loading: "Loading..."} )
