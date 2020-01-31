@@ -53,11 +53,45 @@ body {
   background-image: url(/stardust.png);
 }
 
+#header {
+  display:flex;
+  flex-direction: column;
+  align-content: space-evenly;
+}
+
 #about {
   background-color:transparent !important;
-  position:absolute;
-  margin-left:3%;
+  padding:2vh;
+}
 
+#privacy {
+  background-color:transparent !important;
+  padding:2vh;
+}
+
+#cookie-banner {
+  display:flex;
+  background-color:rgb(80, 72, 85);
+  position:fixed;
+  bottom:0;
+  width:100vw;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#cookie-text {
+  font-size: 1.2rem;
+  padding:2vh;
+  color:yellowgreen;
+}
+
+#agree {
+  margin-right:5%;
+}
+
+#privacy-link {
+  padding:0;
+  background-color:transparent;
 }
 
 .press {
