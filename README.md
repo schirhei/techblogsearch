@@ -1,12 +1,9 @@
 # techblogsearch.ml
 ![screenshot of techblogsearch](https://github.com/schirhei/techblogsearch/blob/master/public/screenshot.jpg?raw=true)
 ### How to use
-Take the url of a Github repository. Copy the last part of the url.
 
-For example.
-github.com/schirhei/techblogsearch --> **schirhei/techblogsearch**
-
-Enjoy browsing the blogs of the contributors.
+Search any subject you are interested in. Techblogsearch looks for github repositories that are related to it.
+Then it lists contributors that have a blog.
 
 ### Why?
 
