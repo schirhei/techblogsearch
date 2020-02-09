@@ -9,20 +9,10 @@ export default class Search extends Component {
             sites: [],
             amount: 0,
             okWithCookies: localStorage.getItem('okWithCookies'),
-            cookieBanner: ""
         }
         this.findLinks = this.findLinks.bind(this);
         this.loadLinks = this.loadLinks.bind(this);
         this.acceptCookies = this.acceptCookies.bind(this)
-    }
-
-    componentDidMount() {
-        if (!this.state.okWithCookies) {
-            this.setState({cookieBanner: (<div id="cookie-banner">
-            <p id="cookie-text">By continuing the use of this site, you consent to the use of cookies as outlined in our <a id="privacy-link" href="privacypolicy.html">Privacy Policy</a>.</p>
-            <button id="agree" onClick={this.acceptCookies}>Ok</button>
-        </div>)})
-        }
     }
 
     findLinks() {
@@ -67,10 +57,6 @@ export default class Search extends Component {
         }
     }
 
-    acceptCookies() {
-        localStorage.setItem('okWithCookies', true);
-        this.setState({ cookieBanner: ""});
-    }
     
     render() {
         
@@ -82,7 +68,6 @@ export default class Search extends Component {
                         
                         <h2 style={{ "color": "yellowgreen", "margin":"0" }}>techblogsearch</h2>
                     
-                        <a id="privacy" href="privacypolicy.html">privacy and cookie policy</a>
                     </div>
                         
                     <div className="press">
@@ -93,8 +78,6 @@ export default class Search extends Component {
                 <br></br>
                 <div style={{"color":"yellowgreen", "textAlign": "center"}}>{ this.state.loading }</div>
                 <div>{ this.state.sites }</div>
-                
-                { this.state.cookieBanner }
             </>
         )
     }
