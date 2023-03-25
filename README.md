@@ -1,4 +1,4 @@
-# techblogsearch.ml
+# techblogsearch
 ![screenshot of techblogsearch](https://github.com/schirhei/techblogsearch/blob/master/public/screenshot.jpg?raw=true)
 ### How to use
 
